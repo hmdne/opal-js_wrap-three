@@ -1,0 +1,16 @@
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+
+/node_modules/
+/lib-opal/js_wrap/three/three.js
+
+Gemfile.lock
+
+# rspec failure tracking
+.rspec_status

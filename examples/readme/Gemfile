@@ -1,0 +1,9 @@
+source "https://rubygems.org"
+
+gem "opal-js_wrap-three", path: "../.."
+# This gem should work with any recent version of Opal (no guarantees),
+# but it's strongly recommended to use Opal v1.4 for improved error
+# reporting.
+gem "opal", github: "opal/opal", ref: "hmdne/ruby31"
+gem "rack"
+gem "webrick"
