@@ -1,3 +1,3 @@
-import * as Three from 'three';
+import * as THREE from 'three';
 
-globalThis.Three = Three;
+globalThis.THREE = globalThis.three = THREE;

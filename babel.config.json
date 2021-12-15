@@ -1,0 +1,10 @@
+{
+  "presets": [["@babel/preset-env", {
+    "modules": "umd",
+  }]],
+  "compact" : false,
+  "targets": { "chrome": 38 },
+  //"plugins": [
+  //  "@babel/plugin-transform-runtime"
+  //]
+}

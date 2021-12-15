@@ -8,7 +8,7 @@
 /tmp/
 
 /node_modules/
-/lib-opal/js_wrap/three/three.js
+/lib-opal/js_wrap/three/
 
 Gemfile.lock
 

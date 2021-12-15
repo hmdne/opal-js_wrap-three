@@ -15,6 +15,7 @@ export default {
       "babelHelpers": "runtime",
       "presets": ["@babel/preset-env"],
       "compact" : false,
+      "targets": { "chrome": 38 },
       "plugins": [
         "@babel/plugin-transform-runtime"
       ]

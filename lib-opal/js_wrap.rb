@@ -142,7 +142,7 @@ module JSWrap
     # @private
     def js_property_name_rb2js(name, raw: nil)
       raw = self.js_function_wrap if raw.nil?
-      if raw || name.start_with?(/[A-Z]/)
+      if raw || name.start_with?(/[_A-Z]/)
         name
       else
         name.gsub(/_(.?)/) { Regexp.last_match(1).upcase }
@@ -152,7 +152,7 @@ module JSWrap
     # @private
     def js_property_name_js2rb(name, raw: nil)
       raw = self.js_function_wrap if raw.nil?
-      if raw || name.start_with?(/[A-Z]/)
+      if raw || name.start_with?(/[_A-Z]/)
         name
       else
         name.gsub(/([A-Z])/) { '_' + Regexp.last_match(1).downcase }
@@ -521,7 +521,7 @@ module JSWrap
     extend WrapperClassMethods
     include ObjectWrapper
     self.js_array_wrap = true
-    undef Array, String
+    undef Array, String, load
   end
   class ArrayView
     extend WrapperClassMethods
@@ -672,7 +672,7 @@ JSWrap.register_wrapping(priority: 10) do |item, parent, args|
 end
 
 class Hash
-  # @return a JavaScript object with the same keys but calling #to_n on
+  # @return a JavaScript object with the same keys but calling #to_js on
   # all values.
   def to_js(parent=nil)
     %x{
@@ -690,6 +690,20 @@ class Hash
         }
         key = #{parent.js_property_name_rb2js(`key`)}
         result[key] = #{JSWrap.unwrap(`value`, parent)}
+      }
+      return result;
+    }
+  end
+end
+
+class Array
+  # Retuns a copy of itself trying to call #to_js on each member.
+  def to_js(parent=nil)
+    %x{
+      var result = [];
+      for (var i = 0, length = self.length; i < length; i++) {
+        var obj = self[i];
+        result.push(#{JSWrap.unwrap(`obj`, parent)});
       }
       return result;
     }

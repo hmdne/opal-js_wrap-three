@@ -16,7 +16,7 @@ geometry = Three::BoxGeometry.new(0.2, 0.2, 0.2)
 material = Three::MeshNormalMaterial.new
 
 mesh = Three::Mesh.new(geometry, material)
-scene.add(mesh)
+scene << mesh
 
 renderer = Three::WebGLRenderer.new(antialias: true)
 renderer.set_size(JSGlobal.inner_width, JSGlobal.inner_height)
