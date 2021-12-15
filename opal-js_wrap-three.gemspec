@@ -10,20 +10,20 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Wrapper for Three.js"
   spec.description   = "(Mostly) raw wrapper for the Three.js library for Opal"
-  spec.homepage      = "https://github.com/hmdne/opal-jswrap-three"
+  spec.homepage      = "https://github.com/hmdne/opal-js_wrap-three"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/hmdne/opal-jswrap-three"
-  spec.metadata["changelog_uri"] = "https://github.com/hmdne/opal-jswrap-three/blob/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/hmdne/opal-js_wrap-three"
+  spec.metadata["changelog_uri"] = "https://github.com/hmdne/opal-js_wrap-three/blob/master/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    ["lib-opal/js_wrap/three/three.js"] + `git ls-files -z`.split("\x0").reject { |f| f.match(%r{\A(?:test|spec|features)/}) }
+    Dir["lib-opal/js_wrap/three/**/*.js"] + `git ls-files -z`.split("\x0").reject { |f| f.match(%r{\A(?:test|spec|features)/}) }
   end
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
