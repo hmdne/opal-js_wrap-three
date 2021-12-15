@@ -7,6 +7,8 @@ module Three
   class Three::Object3D < JSWrap::ObjectView
     js_class `THREE.Object3D`
 
+    self.js_array_wrap = true
+
     def <<(other)
       add(other)
       self

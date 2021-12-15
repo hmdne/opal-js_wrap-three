@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [0.1.3] - 2021-12-15
+
+- Bugfixes
+
 ## [0.1.2] - 2021-12-15
 
 - Correct a release problem

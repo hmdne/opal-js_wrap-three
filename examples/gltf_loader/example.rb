@@ -51,7 +51,7 @@ init = proc do
   renderer.set_size(JSGlobal.inner_width, JSGlobal.inner_height)
   renderer.tone_mapping = Three::ACESFilmicToneMapping
   renderer.tone_mapping_exposure = 1
-  renderer.outputEncoding = Three.sRGBEncoding
+  renderer.output_encoding = Three.sRGBEncoding
   
   JSGlobal.document.body.append_child(renderer.dom_element)
 
