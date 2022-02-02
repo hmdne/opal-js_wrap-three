@@ -36,7 +36,10 @@ task :build_gh_pages do
     FileUtils.mkdir_p output_example_dir
 
     Dir.chdir(example_path) do
-      `bundle exec opal -qopal/js_wrap/three -c example.rb > #{output_example_dir}/app.js`
+      Bundler.with_unbundled_env do
+        `bundle install`
+        `bundle exec opal -qopal/js_wrap/three -c example.rb > #{output_example_dir}/app.js`
+      end
       File.write("#{output_example_dir}/index.html", <<~HTML)
         <!DOCTYPE html>
         <html>
