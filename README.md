@@ -41,6 +41,18 @@ is now `set_size` and so on.
 
 See examples for more info.
 
+## Examples
+
+* Readme - an adapted example from Three.js readme:
+  * https://hmdne.github.io/opal-js_wrap-three/examples/readme/
+  * https://github.com/hmdne/opal-js_wrap-three/blob/master/examples/readme/example.rb
+* Clipping intersection
+  * https://hmdne.github.io/opal-js_wrap-three/examples/clipping_intersection/
+  * https://github.com/hmdne/opal-js_wrap-three/blob/master/examples/clipping_intersection/example.rb
+* GLTF loader
+  * https://hmdne.github.io/opal-js_wrap-three/examples/gltf_loader/
+  * https://github.com/hmdne/opal-js_wrap-three/blob/master/examples/gltf_loader/example.rb
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
