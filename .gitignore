@@ -10,6 +10,8 @@
 /node_modules/
 /lib-opal/js_wrap/three/
 
+/gh-pages/
+
 Gemfile.lock
 
 # rspec failure tracking
