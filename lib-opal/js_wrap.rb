@@ -1,4 +1,5 @@
 # helpers: native, defineProperty
+# backtick_javascript: true
 
 `var inspect_stack = []`
 
@@ -675,24 +676,12 @@ class Hash
   # @return a JavaScript object with the same keys but calling #to_js on
   # all values.
   def to_js(parent=nil)
-    %x{
-      var result = {},
-          keys = self.$$keys,
-          smap = self.$$smap,
-          key, value;
-      for (var i = 0, length = keys.length; i < length; i++) {
-        key = keys[i];
-        if (key.$$is_string) {
-          value = smap[key];
-        } else {
-          key = key.key;
-          value = key.value;
-        }
-        key = #{parent.js_property_name_rb2js(`key`)}
-        result[key] = #{JSWrap.unwrap(`value`, parent)}
-      }
-      return result;
-    }
+    result = `{}`
+    each do |k,v|
+      key = parent ? parent.js_property_name_rb2js(k) : k
+      `result[key] = #{JSWrap.unwrap(`v`, parent)}`
+    end
+    result
   end
 end
 

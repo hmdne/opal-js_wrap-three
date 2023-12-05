@@ -1,3 +1,5 @@
+# backtick_javascript: true
+
 require "js_wrap"
 require "js_wrap/three/three" # JavaScript
 
